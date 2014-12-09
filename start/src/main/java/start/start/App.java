@@ -3,18 +3,34 @@ package start.start;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.webapp.WebAppContext;
 
-public class App 
-{
-  
-    	 public static void main(String[] args) throws Exception {  
-    		 Server server = new Server(8080);
-    		  
-    		  WebAppContext webapp = new WebAppContext();
-    		  webapp.setWar("E:/proxy.war");
-    		  
-    		  server.setHandler(webapp);
-    		  
-    		  server.start(); 
-    	    }  
-    
+public class App {
+
+	public static void main(String[] args) throws Exception {
+		String port=null;
+		String path=null;
+		String[] arrayOfString=args;
+		int j=args.length;
+		for(int i=0;i<j;i++){
+			String arg=arrayOfString[i];
+			if(arg.startsWith("-Dport="))
+				port=arg.substring("-Dport=".length());
+			else if(arg.startsWith("-Dpath=")){
+				path=arg.substring("-Dpath=".length());
+			}
+		}
+		if(port==null){
+			System.out.println("-Dport=null -Dpath=null");
+			return;
+		}
+		Server server = new Server(Integer.valueOf(port.trim()).intValue());
+	    WebAppContext webapp = new WebAppContext();
+	    webapp.setResourceBase(path);
+
+	    server.setHandler(webapp);
+	    server.start();
+	    server.join();
+		
+
+	}
+
 }
