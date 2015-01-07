@@ -1,1 +1,4 @@
-/run.sh
+/start/
+/config.properties
+/spider/
+/util/
