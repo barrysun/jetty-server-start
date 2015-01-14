@@ -42,7 +42,6 @@ public class Testlebazi {
                 System.out.println(href);
             }
         }
-
     }
 
     /**
@@ -70,18 +69,6 @@ public class Testlebazi {
             }
 
         }
-        /*
-         * String filename = ""; String savePath = "D:\\images\\gif"; for
-         * (Element element : imgElements) { // get src with img String name =
-         * element.attr("name"); if (!isNull(name)) { if (name.startsWith("/"))
-         * { name = "http://www.lebazi.com" + name; } filename =
-         * name.substring(name.lastIndexOf("/"), name.length()); //
-         * download(name, filename, savePath); } String src =
-         * element.attr("src"); if (!isNull(src)) { if (src.startsWith("/")) {
-         * src = "http://www.lebazi.com" + src; } filename =
-         * src.substring(src.lastIndexOf("/"), src.length()); download(src,
-         * filename, savePath); } }
-         */
     }
 
     public static void download(String fileUrl, String filename, String savePath)
